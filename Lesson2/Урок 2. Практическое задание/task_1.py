@@ -28,3 +28,44 @@
 Вы вместо трехзначного числа ввели строку (((. Исправьтесь
 Введите операцию (+, -, *, / или 0 для выхода):
 """
+
+
+class OwnError(Exception):
+
+    def __init__(self, txt):
+        self.txt = txt
+
+
+def calculator(param1='0', sign='0', param2='0'):
+    param1 = input('Enter firs param - ')
+    sign = input('\nEnter operation - ')
+    param2 = input('\nEnter second param - ')
+    if sign == '0':
+        return f'Bye bye'
+    elif sign not in ['0', '*', '-', '+', '/']:
+        print('This operation impossible!!')
+        return calculator()
+    try:
+        param1 = float(param1)
+        param2 = float(param2)
+        if isinstance(param1, float) and isinstance(param2, float) is False: # TODO не работает((((
+            raise OwnError('Хуета')
+    except ValueError:
+        print('sdsd')
+    except OwnError as err:
+        print(err)
+    if sign == "+":
+        print(param1 + param2)
+        return calculator()
+    if sign == "-":
+        print(param1 - param2)
+        return calculator()
+    if sign == "*":
+        print(param1 * param2)
+        return calculator()
+    if sign == "/":
+        print(param1 / param2)
+        return calculator()
+
+
+print(calculator())
