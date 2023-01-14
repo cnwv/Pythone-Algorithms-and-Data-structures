@@ -1,6 +1,5 @@
 """
 Задание 2.
-HIHIHIHI
 Реализуйте два алгоритма.
 
 Первый, в виде функции, должен обеспечивать поиск минимального значения для списка.
@@ -17,3 +16,32 @@ HIHIHIHI
 Алгоритмизатор должен развивать мышление, а это прежде всего практика.
 А без столкновения со сложностями его не развить.
 """
+from random import sample
+
+# Генератор
+for j in range(11):
+    lst = sample(range(1, 11), j)
+print(f'Исходный список  -  {lst} ')
+
+
+def first_method(list_obj):
+    copy_list = list(list_obj)
+    for i in range(1, len(copy_list)):
+        key = copy_list[i]
+        j = i - 1
+        while j >= 0 and key < copy_list[j]:
+            copy_list[j + 1] = copy_list[j]
+            j -= 1
+        copy_list[j + 1] = key
+    return f"Первый метод О(N^2)-{copy_list}"
+
+
+def second_method(list_obj):
+    copy_list = list(list_obj)
+    sort_list = sorted(copy_list)
+    return f'Второй метод О(N) - {sort_list} '
+
+
+print(first_method(lst))
+print(second_method(lst))
+
