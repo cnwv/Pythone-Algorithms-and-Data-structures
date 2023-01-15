@@ -48,7 +48,7 @@ def calculator(param1='0', sign='0', param2='0'):
     try:
         param1 = float(param1)
         param2 = float(param2)
-        if isinstance(param1, float) and isinstance(param2, float) is False: # TODO не работает((((
+        if isinstance(param1, float) and isinstance(param2, float) is False: # TODO не работает(((((
             raise OwnError('Хуета')
     except ValueError:
         print('sdsd')

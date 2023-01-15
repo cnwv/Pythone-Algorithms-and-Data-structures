@@ -21,3 +21,26 @@
 Допускается исп-е встроенных ф-ций
 """
 
+
+def symbol_to_ascii(first_symbol=32, last_symbol=128, result='', row=0):
+    if first_symbol == last_symbol:
+        return result
+    else:
+        if row % 10 == 0:
+            result += '\n'
+        result = result + str(first_symbol) + '-' + chr(first_symbol)
+    return symbol_to_ascii(first_symbol + 1, last_symbol, result, row + 1)
+
+
+print(symbol_to_ascii())
+
+def fun(a):
+    if a <= 32:
+        return f'{a} - {chr(a)}'
+    if a % 10 == 0:
+        return f"{fun(a - 1)} {a} - {chr(a)}\n"
+    else:
+        return f"{fun(a - 1)} {a} - {chr(a)}"
+
+
+print(fun(127))

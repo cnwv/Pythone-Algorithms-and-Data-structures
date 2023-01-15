@@ -14,3 +14,15 @@
 
 Элемент в 2 раза меньше предыд и имеет противопол знак
 """
+
+
+def task4(n, begin=1, summ=1):
+    if n == 1:
+        return summ
+    else:
+        begin /= -2
+        summ += begin
+    return task4(n - 1, begin, summ)
+
+
+print(task4(3))
