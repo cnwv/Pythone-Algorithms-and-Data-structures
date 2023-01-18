@@ -1,6 +1,5 @@
 """
 Задание 3.
-HIHIHIH
 Для этой задачи:
 1) придумайте 1-3 решения (желательно хотя бы два)
 2) оцените сложность каждого решения в нотации О-большое
@@ -12,8 +11,7 @@ HIHIHIH
 Если у вас возникают сложности, постарайтесь подумать как можно решить задачу,
 а не писать "мы это не проходили)".
 Алгоритмизатор должен развивать мышление, а это прежде всего практика.
-А без столкновения со сложностями его не развить.
-
+А без столкновения со сложностями его не развить."мы это не проходили)"
 
 Сама задача:
 Имеется хранилище с информацией о компаниях: название и годовая прибыль.
@@ -22,3 +20,32 @@ HIHIHIH
 Реализуйте поиск трех компаний с наибольшей годовой прибылью.
 Выведите результат.
 """
+companies = {
+    'Apple': 213.3,
+    'Microsoft': 143.0,
+    'Amazon': 232.9,
+    'Facebook': 70.7,
+    'Alphabet': 111.9,
+    'Alibaba': 56.2,
+    'Tencent': 65.2,
+    'Intel': 71.4,
+    'IBM': 77.4,
+    'Oracle': 39.5
+}
+
+
+def first_method(input_companies):
+    return sorted(input_companies.items(), key=lambda item: item[1], reverse=True)[:3] # O(N) + O(N log N) + O(N) = O(N)
+
+
+def second_method(input_companies):
+    top_3 =[]
+    for i in range(1, 4):#O(3)
+        top_3.append(max(input_companies.items(), key=lambda i: i[1]))#
+        input_companies.pop(top_3[i-1][0])
+    top_3.reverse()
+    return top_3
+
+
+
+print(second_method(companies))
