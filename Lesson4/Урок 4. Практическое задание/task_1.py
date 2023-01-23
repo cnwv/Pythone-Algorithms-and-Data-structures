@@ -11,7 +11,7 @@
 
 Добавьте аналитику: что вы сделали и почему
 """
-
+import timeit
 
 def func_1(nums):
     new_arr = []
@@ -20,3 +20,12 @@ def func_1(nums):
             new_arr.append(i)
     return new_arr
 
+
+def func_2(nums):
+    return [x for x in nums if x % 2 == 0]
+
+
+list = [i for i in range(1000)]
+
+print(timeit.timeit("func_1(list)", setup="from __main__ import func_1, list", number=1000))
+print(timeit.timeit("func_2(list)", setup="from __main__ import func_2, list", number=1000))
