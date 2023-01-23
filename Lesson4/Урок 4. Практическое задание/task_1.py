@@ -13,6 +13,7 @@
 """
 import timeit
 
+
 def func_1(nums):
     new_arr = []
     for i in range(len(nums)):
@@ -28,4 +29,6 @@ def func_2(nums):
 list = [i for i in range(1000)]
 
 print(timeit.timeit("func_1(list)", setup="from __main__ import func_1, list", number=1000))
+# 0.10690950200023508
 print(timeit.timeit("func_2(list)", setup="from __main__ import func_2, list", number=1000))
+# 0.04861902800030293
